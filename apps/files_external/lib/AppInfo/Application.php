@@ -1,4 +1,5 @@
 <?php
+// /opt/rh/httpd24/root/var/www/html/nextcloud/apps/files_external/lib/AppInfo/Application.php
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
@@ -65,6 +66,7 @@ use OCA\Files_External\Service\BackendService;
 use OCP\AppFramework\App;
 use OCP\IGroup;
 use OCP\IUser;
+use OCA\Files_External\Lib\Auth\SMB\KerberosApacheAuth;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
@@ -180,6 +182,7 @@ class Application extends App implements IBackendProvider, IAuthMechanismProvide
 			// Specialized mechanisms
 			$container->query(AccessKey::class),
 			$container->query(KerberosAuth::class),
+                         $container->query(KerberosApacheAuth::class),
 		];
 	}
 }

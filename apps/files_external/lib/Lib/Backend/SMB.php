@@ -1,4 +1,5 @@
 <?php
+// /opt/rh/httpd24/root/var/www/html/nextcloud/apps/files_external/lib/Lib/Backend
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
@@ -28,6 +29,8 @@ namespace OCA\Files_External\Lib\Backend;
 
 use Icewind\SMB\BasicAuth;
 use Icewind\SMB\KerberosAuth;
+use Icewind\SMB\KerberosApacheAuth;
+
 use OCA\Files_External\Lib\Auth\AuthMechanism;
 use OCA\Files_External\Lib\Auth\Password\Password;
 use OCA\Files_External\Lib\DefinitionParameter;
@@ -86,6 +89,38 @@ class SMB extends Backend {
 				case 'smb::kerberos':
 					$smbAuth = new KerberosAuth();
 					break;
+                                case 'smb::kerberosapache':
+                                        $credentialsStore = $auth->getCredentialsStore();
+                                        $kerb_auth =  new KerberosApacheAuth();
+                                        if ($kerb_auth->checkTicket())
+                                          {
+                                            $kerb_auth->registerApacheKerberosTicket();
+                                            $smbAuth = $kerb_auth;
+                                          }
+                                        else {
+
+                                          
+                                          try {
+               			                $credentials = $credentialsStore->getLoginCredentials();
+                                                $user = $credentials->getLoginName();
+                                                $pass = $credentials->getPassword();
+                                                //TODO: Checks
+                                                $regexp = preg_match('/(.*)@(.*)/', $user, $matches);
+
+                                                   $smbAuth = new BasicAuth(
+                                                              $matches[0],
+                                                              $matches[1],
+                                                              $pass
+                                                   );
+
+
+		                          } catch (Exception $e) {
+                                               //throw new InsufficientDataForMeaningfulAnswerException('No session credentials saved');
+		                          }
+
+                                        }
+
+                                        break;
 				default:
 					throw new \InvalidArgumentException('unknown authentication backend');
 			}
