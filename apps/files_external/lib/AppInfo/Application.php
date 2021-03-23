@@ -1,5 +1,4 @@
 <?php
-// /opt/rh/httpd24/root/var/www/html/nextcloud/apps/files_external/lib/AppInfo/Application.php
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
@@ -11,7 +10,7 @@
  * @author Robin McCorkell <robin@mccorkell.me.uk>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  * @author Ross Nicoll <jrn@jrn.me.uk>
- * @author Vincent Petry <pvince81@owncloud.com>
+ * @author Vincent Petry <vincent@nextcloud.com>
  *
  * @license AGPL-3.0
  *
@@ -182,7 +181,7 @@ class Application extends App implements IBackendProvider, IAuthMechanismProvide
 			// Specialized mechanisms
 			$container->query(AccessKey::class),
 			$container->query(KerberosAuth::class),
-                         $container->query(KerberosApacheAuth::class),
+			$container->query(KerberosApacheAuth::class),
 		];
 	}
 }

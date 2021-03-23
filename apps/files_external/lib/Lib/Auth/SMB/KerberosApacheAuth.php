@@ -1,5 +1,5 @@
 <?php
-// /opt/rh/httpd24/root/var/www/html/nextcloud/apps/files_external/lib/Lib/Auth/SMB
+
 /**
  * @copyright Copyright (c) 2018 Robin Appelman <robin@icewind.nl>
  *

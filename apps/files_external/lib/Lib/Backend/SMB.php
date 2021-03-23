@@ -1,5 +1,4 @@
 <?php
-// /opt/rh/httpd24/root/var/www/html/nextcloud/apps/files_external/lib/Lib/Backend
 /**
  * @copyright Copyright (c) 2016, ownCloud, Inc.
  *
@@ -30,7 +29,6 @@ namespace OCA\Files_External\Lib\Backend;
 use Icewind\SMB\BasicAuth;
 use Icewind\SMB\KerberosAuth;
 use Icewind\SMB\KerberosApacheAuth;
-
 use OCA\Files_External\Lib\Auth\AuthMechanism;
 use OCA\Files_External\Lib\Auth\Password\Password;
 use OCA\Files_External\Lib\DefinitionParameter;

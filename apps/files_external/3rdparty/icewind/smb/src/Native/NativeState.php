@@ -96,10 +96,8 @@ class NativeState {
 		smbclient_option_set($this->state, SMBCLIENT_OPT_AUTO_ANONYMOUS_LOGIN, false);
 		smbclient_option_set($this->state, SMBCLIENT_OPT_TIMEOUT, $options->getTimeout() * 1000);
 		$auth->setExtraSmbClientOptions($this->state);
-
 	        $this->auth = $auth;
-
-         	$result = @smbclient_state_init($this->state, $auth->getWorkgroup(), $auth->getUsername(), $auth->getPassword());
+		$result = @smbclient_state_init($this->state, $auth->getWorkgroup(), $auth->getUsername(), $auth->getPassword());
 
 		$this->testResult($result, '');
 		$this->connected = true;

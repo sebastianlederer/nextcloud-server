@@ -81,12 +81,6 @@ class KerberosApacheAuth implements IAuth {
 		if(!$krb5->isValid()) {
 			throw new Exception('Kerberos ticket cache is not valid.');                        
 		}
-                
-                  
-                
-                 
-                
-
 
 		if($this->saveTicketInMemory) {
 			putenv("KRB5CCNAME=" . $krb5->getName());
