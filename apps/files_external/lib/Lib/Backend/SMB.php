@@ -96,10 +96,8 @@ class SMB extends Backend {
                                             $smbAuth = $kerb_auth;
                                           }
                                         else {
-
-                                          
                                           try {
-               			                $credentials = $credentialsStore->getLoginCredentials();
+                                                $credentials = $credentialsStore->getLoginCredentials();
                                                 $user = $credentials->getLoginName();
                                                 $pass = $credentials->getPassword();
                                                 //TODO: Checks
@@ -110,12 +108,9 @@ class SMB extends Backend {
                                                               $matches[1],
                                                               $pass
                                                    );
-
-
 		                          } catch (Exception $e) {
                                                //throw new InsufficientDataForMeaningfulAnswerException('No session credentials saved');
 		                          }
-
                                         }
 
                                         break;

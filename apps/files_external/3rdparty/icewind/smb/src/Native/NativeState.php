@@ -38,7 +38,7 @@ class NativeState {
 
 	protected $connected = false;
 
-        // sync the garbage collection cycle 
+        // sync the garbage collection cycle
         // __deconstruct() of KerberosAuth should not called too soon
         protected $auth;
 

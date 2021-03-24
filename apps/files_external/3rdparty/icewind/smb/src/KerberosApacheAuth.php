@@ -54,7 +54,7 @@ class KerberosApacheAuth implements IAuth {
 
                 $krb5 = new \KRB5CCache();
                 $krb5->open($cacheFile);
-                return $krb5->isValid();                   
+                return $krb5->isValid();
 
         }
 
@@ -79,7 +79,7 @@ class KerberosApacheAuth implements IAuth {
 		$krb5 = new \KRB5CCache();
 		$krb5->open($cacheFile);
 		if(!$krb5->isValid()) {
-			throw new Exception('Kerberos ticket cache is not valid.');                        
+			throw new Exception('Kerberos ticket cache is not valid.');
 		}
 
 		if($this->saveTicketInMemory) {

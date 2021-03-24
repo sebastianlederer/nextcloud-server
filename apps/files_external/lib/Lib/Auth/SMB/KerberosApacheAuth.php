@@ -38,7 +38,7 @@ class KerberosApacheAuth extends AuthMechanism {
 			->setText($l->t('Kerberos ticket apache mode'));
                 $this->credentialsStore = $credentialsStore;
 	}
-       
+
         public function getCredentialsStore() {
             return $this->credentialsStore;
         }
